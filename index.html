@@ -3,12 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Assets/CSS/reset.css">
     <link rel="stylesheet" href="./Assets/CSS/style.css">
     <title>Code Quiz</title>
 </head>
 <body>
-    <!-- This is the Display high-score button -->
-    <button class="display-high-score-btn">Display High scores</button>
+    <header>
+        <!-- This is the Display high-score button -->
+        <button class="display-high-score-btn">Display High scores</button>
+        <!-- This is the timer -->
+        <div class="timer">
+            <h1>Time Remain: <span id="time"></span></h1>
+        </div>
+    </header>
+
+    <!-- This section will hold all the feature for the questions -->
+    <section class="main-display-box">
+        <!-- This containers the main box for questions -->
+        <div class="display-container">
+            <!-- this is the topic of the questions -->
+            <h2 id="question-topics"></h2>
+            <!-- this p tag should should display the questions -->
+            <p id="questions">
+                questions
+            </p>
+            <!-- this div tag should hold all the selection buttons  -->
+            <div id="choices">
+                <button>opt-1</button>
+                <button>opt-2</button>
+                <button>opt-3</button>
+                <button>opt-4</button>
+            </div>
+
+        </div>
+        <!-- This div hold everything before the user press start -->
+        <div class="start-quiz">
+            <button>Start</button>
+        </div>
+    </section>
+    
     
 </body>
 </html>
