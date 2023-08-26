@@ -15,5 +15,11 @@ const submitBtn = document.querySelector("submitBtn");
 
 
 // Declaring variables
-// The index is use in the checking and tracking the position of which question it's runing
+// The index is use in the checking and tracking the position of which question it's running
 let index = 0;
+
+
+// this function will be call when we click on the start button after we add an event listener
+function generateQuiz (){
+
+}
