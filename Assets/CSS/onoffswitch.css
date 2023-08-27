@@ -1,0 +1,8 @@
+/* These attributes targets the class hide and show to make them appear or disappear */
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
