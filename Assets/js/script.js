@@ -4,14 +4,24 @@ const scoreBtn = document.querySelector(".score-btn");
 const timeEl = document.getElementById("time");
 const startContainer = document.querySelector("starting page");
 const startBtn = document.getElementById("startbtn");
-// this are the element in the section
-const questContainer = document.querySelector("main-display-box");
+// thsese are the element in the section
+const questionContainer = document.querySelector("main-display-box");
 const questionEl = document.getElementById("question");
 const choicesBtn = document.querySelector("options-btn");
-// this are the elements in the footer
+// This is the section element for testing
+// for .querySelector I need to add "#" for id, and "." for class in front of it 
+const questionContainerSec = document.querySelector(".main-display-boxvsec");
+// these are the elements in the footer
 const initialEl = document.querySelector("initial-container");
 const initialInput = document.getElementById("initial-input");
 const submitBtn = document.querySelector("submitBtn");
+
+//Testing hide and show functions 
+questionContainerSec.classList.replace('show','hide');
+
+// Debugging error forgot the "." in the querySelector parentheses
+console.log(questionContainerSec);
+
 
 
 // Declaring variables
@@ -31,5 +41,5 @@ function generateQuiz (){
         endQuiz();
     }
     // If the if statement doesn't get trigger it will run the following code
-    
+
 }
