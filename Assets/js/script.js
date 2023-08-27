@@ -21,5 +21,15 @@ let index = 0;
 
 // this function will be call when we click on the start button after we add an event listener
 function generateQuiz (){
-
+    // this if statement will check the user went through all the questions
+    // index of the question will start from 0 as in the array count from zero
+    // the "questions" variable is not defined in the script.js but it's in the questions.js
+    // the reason that we don't have to "import it from question.js it's its's linked in the end of HTML before script.js
+    // JavaScript see the questions.js before it runs the script thus I am able to use variable questions 
+    if( index === questions.length) {
+        // The function will start a series of action after the user went through all the question
+        endQuiz();
+    }
+    // If the if statement doesn't get trigger it will run the following code
+    
 }
