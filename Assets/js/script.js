@@ -7,7 +7,7 @@ const startBtn = document.getElementById("startbtn");
 
 // thsese are the element in the section
 const questionContainer = document.querySelector(".main-display-box");
-const questionEl = document.getElementById("question");
+const questionEl = document.getElementById("questions");
 const choicesBtn = document.querySelector(".options-btn");
 // This is the section element for testing
 // for .querySelector I need to add "#" for id, and "." for class in front of it 
@@ -32,6 +32,10 @@ questionContainerSec.classList.replace('show','hide');
 let index = 0;
 
 
+
+
+
+
 // this function will be call when we click on the start button after we add an event listener
 function generateQuiz() {
     // this if statement will check the user went through all the questions
@@ -46,12 +50,29 @@ function generateQuiz() {
     // checking to see if it worked
     console.log(index)
     // If the if statement doesn't get trigger it will run the following code
-    questionContainer.classList.remove("hide");
+
+    // questionContainer.classList.remove("hide");
     questionContainer.classList.add("show");
     // checking if it worked
-    console.log(questionContainer)
+    console.log(questionContainer);
+    // This line of code should display the questions in the main-display-box as p tag in HTML which I got and const it as questionEl
+    // questionEl = the const I declared retrieving the HTML
+    // textContent = replacing the the text in the questionEl with question
+    // question[index] = this is pointing at which question js is getting in this case I set it to 0 switch is the first one cuz it start with 0
+    // .question = is the element in the object with I defined in questions.js
+    // because the question.js was ran before script js know the const questions exist
+    questionEl.textContent = questions[index].question;
+    // The choiceBtn was declare and I retrieve the choice buttons placeholder from the HTML
+    // The .innerHTML property will set or get the HTML content within the element
+    // When the .innerHTML is assign a string it will replace the existing HTML contents
+    // Here I set the choicesBtn to an empty string thus it will clear out the option buttons 
+    choicesBtn.innerHTML = "";
+
 
 }
+
+
+
 
 
 // Adding an Event listener
