@@ -33,7 +33,7 @@ let index = 0;
 
 
 // this function will be call when we click on the start button after we add an event listener
-function generateQuiz (){
+function generateQuiz() {
     // this if statement will check the user went through all the questions
     // index of the question will start from 0 as in the array count from zero
     // the "questions" variable is not defined in the script.js but it's in the questions.js
@@ -43,6 +43,8 @@ function generateQuiz (){
         // The function will start a series of action after the user went through all the question
         endQuiz();
     }
+    // checking to see if it worked
+    console.log(index)
     // If the if statement doesn't get trigger it will run the following code
     questionContainer.classList.remove("hide");
     questionContainer.classList.add("show");
@@ -59,9 +61,12 @@ function generateQuiz (){
 // a regular function could have their own `this` context 
 // a arrow function does not hae their own `this context and have to inherit from surrounding functions
 // Thus this says when I click the start button add and hide element to start-page class and console log it
+// and then call function generateQuiz
 startBtn.addEventListener("click",()=>{
     // I am putting a hide element on the startContainer 
     startContainer.classList.add("hide");
     // checking if it worked
-    console.log(startContainer)
+    console.log(startContainer);
+    // then call 
+    generateQuiz();
 })
