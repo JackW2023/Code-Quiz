@@ -2,25 +2,28 @@
 const scoreBtn = document.querySelector(".score-btn");
 // getting the span time
 const timeEl = document.getElementById("time");
-const startContainer = document.querySelector("starting page");
+const startContainer = document.querySelector(".starting-page");
 const startBtn = document.getElementById("startbtn");
+
 // thsese are the element in the section
-const questionContainer = document.querySelector("main-display-box");
+const questionContainer = document.querySelector(".main-display-box");
 const questionEl = document.getElementById("question");
-const choicesBtn = document.querySelector("options-btn");
+const choicesBtn = document.querySelector(".options-btn");
 // This is the section element for testing
 // for .querySelector I need to add "#" for id, and "." for class in front of it 
 const questionContainerSec = document.querySelector(".main-display-boxvsec");
+
 // these are the elements in the footer
-const initialEl = document.querySelector("initial-container");
+const initialEl = document.querySelector(".initial-container");
 const initialInput = document.getElementById("initial-input");
-const submitBtn = document.querySelector("submitBtn");
+const submitBtn = document.querySelector(".submitBtn");
 
 //Testing hide and show functions 
+// The ".classList" allows us to manipulate different class features or attributes
+// The ".replace" is replacing the element show to hide on main-display-boxvsec
 questionContainerSec.classList.replace('show','hide');
-
 // Debugging error forgot the "." in the querySelector parentheses
-console.log(questionContainerSec);
+// console.log(questionContainerSec);
 
 
 
@@ -41,5 +44,24 @@ function generateQuiz (){
         endQuiz();
     }
     // If the if statement doesn't get trigger it will run the following code
+    questionContainer.classList.remove("hide");
+    questionContainer.classList.add("show");
+    // checking if it worked
+    console.log(questionContainer)
 
 }
+
+
+// Adding an Event listener
+// the startBtn is predefined we get the element from the html
+// the .addEventListener is a built in methods for js allows users to interact with the elements
+// the () => {} is an arrow function
+// a regular function could have their own `this` context 
+// a arrow function does not hae their own `this context and have to inherit from surrounding functions
+// Thus this says when I click the start button add and hide element to start-page class and console log it
+startBtn.addEventListener("click",()=>{
+    // I am putting a hide element on the startContainer 
+    startContainer.classList.add("hide");
+    // checking if it worked
+    console.log(startContainer)
+})
