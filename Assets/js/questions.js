@@ -1,18 +1,18 @@
-const questions = [
+const questionsList = [
     {
         question: "whats the name of your cat?",
         choices: ["Bob","John","Jack","Kate"],
-        answers: "Bob"
+        answer: "Bob"
 
     },
     {
         question: "whats the name of your dog?",
         choices: ["Bob","John","Jack","Kate"],
-        answers: "Jack"
+        answer: "Jack"
     },
     {
         question: "whats the name of your pet?",
         choices: ["Bob","John","Jack","Kate"],
-        answers: "John"
+        answer: "John"
     }
 ]
