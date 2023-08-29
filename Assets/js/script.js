@@ -49,24 +49,48 @@ function generateQuiz() {
     }
     // checking to see if it worked
     console.log(index)
-    // If the if statement doesn't get trigger it will run the following code
 
+    // If the if statement doesn't get trigger it will run the following code
     // questionContainer.classList.remove("hide");
     questionContainer.classList.add("show");
     // checking if it worked
     console.log(questionContainer);
+
     // This line of code should display the questions in the main-display-box as p tag in HTML which I got and const it as questionEl
     // questionEl = the const I declared retrieving the HTML
     // textContent = replacing the the text in the questionEl with question
     // question[index] = this is pointing at which question js is getting in this case I set it to 0 switch is the first one cuz it start with 0
     // .question = is the element in the object with I defined in questions.js
     // because the question.js was ran before script js know the const questions exist
+    // This line ultimately will run through all the question
     questionEl.textContent = questions[index].question;
     // The choiceBtn was declare and I retrieve the choice buttons placeholder from the HTML
     // The .innerHTML property will set or get the HTML content within the element
     // When the .innerHTML is assign a string it will replace the existing HTML contents
     // Here I set the choicesBtn to an empty string thus it will clear out the option buttons 
     choicesBtn.innerHTML = "";
+
+    // This For loop will ensure my code generates choices in button formate
+    // for this for loop I set i equal to zero
+    // when i is less than the current question's, 
+    // which determined by the "index" and was declare starting from zero,  
+    // "choice", "length" run through the for loop and increase i by one which is the i++
+    // The reason I need to add an .length instead of just targeting the choice is because
+    // The .length will turn this into numeric value and the center condition for "for" loop is boolean thus numeric value is easier to debug
+    for( let i = 0; i < questions[index].choices.length; i++ ) {
+        // Once it pass the condition I first need to create the buttons
+        // I const and placeholderButton where the button that holds the choices will be created
+        // The "document" is a global object that allows developer interacts with and get or manipulates element 
+        // The .createElement method is used to create HTML element in Js
+        // I am creating an buttons thus I pass in "Button" in the Parentheses 
+        const placholderBtn = document.createElement("button");
+        // Next I Set the Buttons Attribute to the choice options thus it will display the choices in a form of buttons
+        placholderBtn.setAttribute("class","choice-btn");
+        // checking if it worked
+        console.log(placholderBtn);
+        // Then, I set displays location the buttons will be display in the option-btn div inside the display container which is in HTML which I declared as ChoiceBtn in Js
+        
+    }
 
 
 }

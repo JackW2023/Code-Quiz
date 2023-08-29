@@ -1,18 +1,18 @@
 const questions = [
     {
         question: "whats the name of your cat?",
-        answers: ["Bob","John","Jack","Kate"],
-        correct: "Bob"
+        choices: ["Bob","John","Jack","Kate"],
+        answers: "Bob"
 
     },
     {
         question: "whats the name of your dog?",
-        answers: ["Bob","John","Jack","Kate"],
-        correct: "Jack"
+        choices: ["Bob","John","Jack","Kate"],
+        answers: "Jack"
     },
     {
         question: "whats the name of your pet?",
-        answers: ["Bob","John","Jack","Kate"],
-        correct: "John"
+        choices: ["Bob","John","Jack","Kate"],
+        answers: "John"
     }
 ]
