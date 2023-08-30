@@ -83,7 +83,7 @@ function generateQuiz() {
         // The "document" is a global object that allows developer interacts with and get or manipulates element 
         // The .createElement method is used to create HTML element in Js
         // I am creating an buttons thus I pass in "Button" in the Parentheses 
-        const placHolderBtn = document.createElement("button");
+        const placeHolderBtn = document.createElement("button");
         // Next I added attributes to the button tags 
         // placeholderBtn was pre-declare constant
         // the .setAttribute method is use for adding new attribute to HTML
@@ -91,19 +91,30 @@ function generateQuiz() {
             // 1. The type of the attribute you want to set it to standard term in HTML such as "class", "href"
             // 2. The name of the selected attribute you set it to 
         // In this case I set the attribute of placeholderBtn which are the buttons tag to choice-btn
-        placHolderBtn.setAttribute("class","choice-btn");
+        placeHolderBtn.setAttribute("class","choice-btn");
         // checking if it worked
         // for here event though I haven't get to replacing the text content for buttons with choices
             //  but I use questionsList[index].choices.length as the for loop condition thus js know that the buttons name
-        console.log(placHolderBtn);
+        console.log(placeHolderBtn);
         // Then, I retrieve the choice options from the questions.js and place each options into one of the buttons
             // The placeHolderBtn is pre-defined constant in this for loop
             // The .textContent is getting or setting or replacing text contents with the text I provide
                 // In this case I'm just setting placeHolder which are the buttons to choices in the questionList in questions.js
-            //  
-        placHolderBtn.textContent = questionsList[index].choices[i]
+            // The questionList is the constant in the question.js file which I added at the bottom of the index.html before script.js so I could use it 
+            // The [index] is pointing at which set of questions or Objects are we looking for starting from 0 the beginning.
+            // The .choices is pointing at the choices section of the object and getting the elements
+            // The [i] is pointing at which string are we getting starting from the right to left 
+            // Normally Code always reads from left to right top to bottom  
+        placeHolderBtn.textContent = questionsList[index].choices[i]
         // checking if it worked
-        console.log(placHolderBtn);
+        console.log(placeHolderBtn);
+        // Finally, I append the placeHolderBtn 
+            // which now holds all the choices that formatted into button form on to the choiceBtn
+            // which I declare constant and getting it from div that has an class attribute of "options-btn" on the html page
+        // PlaceHolderBtn which I declare an constant in this function
+        // The .append adds the newly created placeHolderBtn element as a child to the end of choiceBtn 
+        // The choiceBtn is an constant I declared which is getting the element "options-btn" on the html page 
+        choicesBtn.append(placeHolderBtn)
     }
 
 
