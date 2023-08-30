@@ -63,7 +63,7 @@ function generateQuiz() {
     // .question = is the element in the object with I defined in questions.js
     // because the question.js was ran before script js know the const questions exist
     // This line ultimately will run through all the question
-    questionEl.textContent = questions[index].question;
+    questionEl.textContent = questionsList[index].question;
     // The choiceBtn was declare and I retrieve the choice buttons placeholder from the HTML
     // The .innerHTML property will set or get the HTML content within the element
     // When the .innerHTML is assign a string it will replace the existing HTML contents
@@ -77,19 +77,33 @@ function generateQuiz() {
     // "choice", "length" run through the for loop and increase i by one which is the i++
     // The reason I need to add an .length instead of just targeting the choice is because
     // The .length will turn this into numeric value and the center condition for "for" loop is boolean thus numeric value is easier to debug
-    for( let i = 0; i < questions[index].choices.length; i++ ) {
+    for( let i = 0; i < questionsList[index].choices.length; i++ ) {
         // Once it pass the condition I first need to create the buttons
         // I const and placeholderButton where the button that holds the choices will be created
         // The "document" is a global object that allows developer interacts with and get or manipulates element 
         // The .createElement method is used to create HTML element in Js
         // I am creating an buttons thus I pass in "Button" in the Parentheses 
-        const placholderBtn = document.createElement("button");
-        // Next I Set the Buttons Attribute to the choice options thus it will display the choices in a form of buttons
-        placholderBtn.setAttribute("class","choice-btn");
+        const placHolderBtn = document.createElement("button");
+        // Next I added attributes to the button tags 
+        // placeholderBtn was pre-declare constant
+        // the .setAttribute method is use for adding new attribute to HTML
+        // The .setAttribute could take in two arguments 
+            // 1. The type of the attribute you want to set it to standard term in HTML such as "class", "href"
+            // 2. The name of the selected attribute you set it to 
+        // In this case I set the attribute of placeholderBtn which are the buttons tag to choice-btn
+        placHolderBtn.setAttribute("class","choice-btn");
         // checking if it worked
-        console.log(placholderBtn);
-        // Then, I set displays location the buttons will be display in the option-btn div inside the display container which is in HTML which I declared as ChoiceBtn in Js
-        
+        // for here event though I haven't get to replacing the text content for buttons with choices
+            //  but I use questionsList[index].choices.length as the for loop condition thus js know that the buttons name
+        console.log(placHolderBtn);
+        // Then, I retrieve the choice options from the questions.js and place each options into one of the buttons
+            // The placeHolderBtn is pre-defined constant in this for loop
+            // The .textContent is getting or setting or replacing text contents with the text I provide
+                // In this case I'm just setting placeHolder which are the buttons to choices in the questionList in questions.js
+            //  
+        placHolderBtn.textContent = questionsList[index].choices[i]
+        // checking if it worked
+        console.log(placHolderBtn);
     }
 
 
