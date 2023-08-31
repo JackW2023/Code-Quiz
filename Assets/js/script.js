@@ -30,10 +30,12 @@ questionContainerSec.classList.replace('show','hide');
 
 
 // Declaring variables
-// The index is use in the checking and tracking the position of which question it's running
+// The index variable is use in the checking and tracking the position of which question it's running
 let index = 0;
-// The score is use in saving the user's score 
+// The score variable is use in saving the user's score 
 let score = 0;
+// The time variable is use to store the amount of time the user have at the beginning of the quiz
+let time = 90;
 
 
 
@@ -139,14 +141,41 @@ function generateQuiz() {
 // The argument could be name to anything because I am passing in the value thus the name will be like a placeholder for the value
 function checkAnswers (userChoice) {
     // The if statement will check for whether the the user answer correctly or not
-    // If the user pick the user pick the choice that match the "answer" in the "questions" object
+    // If the user pick the choice that match the "answer" in the "questionList" object
         // Then I will add 1 to both "index" and the score and call "generateQuiz" function again
+        // Move to the next question by incrementing 1 for index
+        // And call generateQuiz again
+    // Else if the user pick the choice that doesn't match the "answer" in the "questionList" object
+        // Then I will let the user pick if they want to deduct time or score
+        // Move to the next question by incrementing 1 for index
+        // And call generateQuiz again
     if( userChoice === questionsList[index].answer) {
         score++
         index++
         generateQuiz()
+        // checking to see if it work
         console.log(score)
+    } else {
+        const selection = confirm("Penalty! Do you want to deduct points? \n OK: 1 point will be deducted \n Cancel: 5s will be deducted")
+        if (selection) {
+            score--
+            index++
+            generateQuiz()
+            // checking to see if it work
+            console.log(score)
+        } else {
+            // this is a shorthand for time = time - 5 
+            time-= 5
+            index++
+            generateQuiz()
+            // checking to see if it work
+            console.log(time)
+        }
     }
+
+    
+    
+    
 
 }
 
