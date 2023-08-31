@@ -27,6 +27,8 @@ questionContainerSec.classList.replace('show','hide');
 
 
 
+
+
 // Declaring variables
 // The index is use in the checking and tracking the position of which question it's running
 let index = 0;
@@ -124,6 +126,17 @@ function generateQuiz() {
 
 
 
+
+// This function will also deduct time if the user get the question wrong thats step 2
+function checkAnswers () {
+
+}
+
+
+
+
+
+
 // Adding an Event listener
 // the startBtn is predefined we get the element from the html
 // the .addEventListener is a built in methods for js allows users to interact with the elements
@@ -132,11 +145,33 @@ function generateQuiz() {
 // a arrow function does not hae their own `this context and have to inherit from surrounding functions
 // Thus this says when I click the start button add and hide element to start-page class and console log it
 // and then call function generateQuiz
-startBtn.addEventListener("click",()=>{
+startBtn.addEventListener("click",() => {
     // I am putting a hide element on the startContainer 
     startContainer.classList.add("hide");
     // checking if it worked
     console.log(startContainer);
     // then call 
     generateQuiz();
+})
+
+
+
+
+
+
+// This event listener will check which option did the user click
+    // The choicesBtn is pre-declare and were getting the div from html
+    // The "click" in the parentheses is the event I'm listening to
+    // The (event)=> is the arrow function that execute when the event happens
+        // The `event` is an object automatically passed by the browser into the ()=> arrow function when the event occurs
+            // The argument will contains lots of useful information about the event, such as the type of event, the element that triggered it, and more.
+    // Then, within the function I declare constant userChoice
+    // The "event.target" will get the element in the choiceBtn that the user click on (getting the element) 
+    // The "event.target.textContent" will get the text content of the clicked element (getting the text content for the element)
+    // Finally, I call "checkAnswers()" Function and pass in the userChoice with the element and the text content within it into the function
+choicesBtn.addEventListener("click",(event) => {
+    const userChoice = event.target.textContent;
+    checkAnswers(userChoice);
+    // checking for error
+    console.log(userChoice);
 })
