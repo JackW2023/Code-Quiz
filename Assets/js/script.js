@@ -32,6 +32,8 @@ questionContainerSec.classList.replace('show','hide');
 // Declaring variables
 // The index is use in the checking and tracking the position of which question it's running
 let index = 0;
+// The score is use in saving the user's score 
+let score = 0;
 
 
 
@@ -84,7 +86,8 @@ function generateQuiz() {
         // I const and placeholderButton where the button that holds the choices will be created
         // The "document" is a global object that allows developer interacts with and get or manipulates element 
         // The .createElement method is used to create HTML element in Js
-        // I am creating an buttons thus I pass in "Button" in the Parentheses 
+        // I am creating an buttons thus I pass in "Button" in the Parentheses
+
         const placeHolderBtn = document.createElement("button");
         // Next I added attributes to the button tags 
         // placeholderBtn was pre-declare constant
@@ -93,10 +96,12 @@ function generateQuiz() {
             // 1. The type of the attribute you want to set it to standard term in HTML such as "class", "href"
             // 2. The name of the selected attribute you set it to 
         // In this case I set the attribute of placeholderBtn which are the buttons tag to choice-btn
+
         placeHolderBtn.setAttribute("class","choice-btn");
         // checking if it worked
         // for here event though I haven't get to replacing the text content for buttons with choices
             //  but I use questionsList[index].choices.length as the for loop condition thus js know that the buttons name
+
         console.log(placeHolderBtn);
         // Then, I retrieve the choice options from the questions.js and place each options into one of the buttons
             // The placeHolderBtn is pre-defined constant in this for loop
@@ -106,7 +111,8 @@ function generateQuiz() {
             // The [index] is pointing at which set of questions or Objects are we looking for starting from 0 the beginning.
             // The .choices is pointing at the choices section of the object and getting the elements
             // The [i] is pointing at which string are we getting starting from the right to left 
-            // Normally Code always reads from left to right top to bottom  
+            // Normally Code always reads from left to right top to bottom 
+
         placeHolderBtn.textContent = questionsList[index].choices[i]
         // checking if it worked
         console.log(placeHolderBtn);
@@ -128,7 +134,19 @@ function generateQuiz() {
 
 
 // This function will also deduct time if the user get the question wrong thats step 2
-function checkAnswers () {
+// I declare this function as checkAnswer
+// The argument in the parentheses "userChoice" was pass into this function with the eventListener that takes the button choice the user click on
+// The argument could be name to anything because I am passing in the value thus the name will be like a placeholder for the value
+function checkAnswers (userChoice) {
+    // The if statement will check for whether the the user answer correctly or not
+    // If the user pick the user pick the choice that match the "answer" in the "questions" object
+        // Then I will add 1 to both "index" and the score and call "generateQuiz" function again
+    if( userChoice === questionsList[index].answer) {
+        score++
+        index++
+        generateQuiz()
+        console.log(score)
+    }
 
 }
 
