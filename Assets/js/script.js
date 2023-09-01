@@ -55,7 +55,6 @@ function generateQuiz() {
     }
     // checking to see if it worked
     console.log(index)
-
     // If the if statement doesn't get trigger it will run the following code
     // questionContainer.classList.remove("hide");
     questionContainer.classList.add("show");
@@ -70,6 +69,7 @@ function generateQuiz() {
     // because the question.js was ran before script js know the const questions exist
     // This line ultimately will run through all the question
     questionEl.textContent = questionsList[index].question;
+
     // The choiceBtn was declare and I retrieve the choice buttons placeholder from the HTML
     // The .innerHTML property will set or get the HTML content within the element
     // When the .innerHTML is assign a string it will replace the existing HTML contents
@@ -135,6 +135,7 @@ function generateQuiz() {
 
 
 
+
 // This function will also deduct time if the user get the question wrong thats step 2
 // I declare this function as checkAnswer
 // The argument in the parentheses "userChoice" was pass into this function with the eventListener that takes the button choice the user click on
@@ -150,26 +151,32 @@ function checkAnswers (userChoice) {
         // Move to the next question by incrementing 1 for index
         // And call generateQuiz again
     if( userChoice === questionsList[index].answer) {
-        score++
-        index++
-        generateQuiz()
+        score++;
+        index++;
+        generateQuiz();
         // checking to see if it work
-        console.log(score)
+        console.log(score);
     } else {
-        const selection = confirm("Penalty! Do you want to deduct points? \n OK: 1 point will be deducted \n Cancel: 5s will be deducted")
+        // need to put the variable here because this is where the variable will be use cannot put it in global scope
+        // in if else statement it won't look for it if it doesn't exist
+        // declaring confirms, prompt, or alert also execute when you declare them
+        const selection = confirm("Penalty! Do you want to deduct points? \n OK: 1 point will be deducted \n Cancel: 5s will be deducted");
         if (selection) {
-            score--
-            index++
-            generateQuiz()
+            // This if statement will only deduct point if score is greater than zero
+            if (score > 0) { 
+                score--;
+            }
+            index++;
+            generateQuiz();
             // checking to see if it work
-            console.log(score)
+            console.log(score);
         } else {
             // this is a shorthand for time = time - 5 
-            time-= 5
-            index++
-            generateQuiz()
+            time-= 5;
+            index++;
+            generateQuiz();
             // checking to see if it work
-            console.log(time)
+            console.log(time);
         }
     }
 
