@@ -36,6 +36,8 @@ let index = 0;
 let score = 0;
 // The time variable is use to store the amount of time the user have at the beginning of the quiz
 let time = 90;
+// the timer variable is use to store the ID of the function "setInterval", and with it we could stop time
+let timer;
 
 
 
@@ -114,7 +116,6 @@ function generateQuiz() {
             // The .choices is pointing at the choices section of the object and getting the elements
             // The [i] is pointing at which string are we getting starting from the right to left 
             // Normally Code always reads from left to right top to bottom 
-
         placeHolderBtn.textContent = questionsList[index].choices[i]
         // checking if it worked
         console.log(placeHolderBtn);
@@ -160,7 +161,7 @@ function checkAnswers (userChoice) {
         // need to put the variable here because this is where the variable will be use cannot put it in global scope
         // in if else statement it won't look for it if it doesn't exist
         // declaring confirms, prompt, or alert also execute when you declare them
-        const selection = confirm("Penalty! Do you want to deduct points? \n OK: 1 point will be deducted \n Cancel: 5s will be deducted");
+        const selection = confirm("EVERY SECOND YOUR DECIDING PLUS READING THIS WILL COUNT TOWARD LOST TIME \n Do you want to deduct points? \n OK: 1 point will be deducted \n Cancel: 5s will be deducted");
         if (selection) {
             // This if statement will only deduct point if score is greater than zero
             if (score > 0) { 
@@ -191,6 +192,41 @@ function checkAnswers (userChoice) {
 
 
 
+
+// This function will set the timer for the quiz
+function startTimer() {
+    // I set the pre-declare variable timer as an gate to control the time using the function
+    // The setInterval() function is a built in function that handles functions that needs to be executed repeatedly at a fixed time interval
+        // The setInterval takes in two arguments
+            // 1. the function that needs to be execute
+            // 2. the time interval, in milliseconds, at which you want to execute that function
+        // The setInterval function alway have the format of setInterval setInterval(function(){}, `interval in millisecond`)
+            // it could also take in the arrow function and inline string code but 
+                // inline string code is consider bad practice and should be avoided
+                    // security reason - the code is vulnerable could result in arbitrary code execution
+                    // Harder to read - the code would be harder to understand because it separates the logic from the function 
+                        // without logic it will lose some benefit like syntax highlighting 
+    timer = setInterval( function() {
+        // The time variable is pre-declare
+            // using the setInterval function 1 will be deducted each millisecond which is 1 second
+        time--;
+        // The timeEl is pre-declare global variable 
+            // I declare so that it gets the span tag name "time" from the html
+        // .textContent is updating the timeEl with "time"
+        // The "time" variable will be updated with every interval do to the usage of setInterval built in function
+        timeEl.textContent = time 
+
+    // The "1000" means that the interval is set to 1000 millisecond which is 1 second 
+    }, 1000)
+}
+
+
+
+
+
+
+
+
 // Adding an Event listener
 // the startBtn is predefined we get the element from the html
 // the .addEventListener is a built in methods for js allows users to interact with the elements
@@ -206,6 +242,7 @@ startBtn.addEventListener("click",() => {
     console.log(startContainer);
     // then call 
     generateQuiz();
+    startTimer();
 })
 
 
