@@ -2,7 +2,7 @@ const startContainer = document.querySelector(".start-container");
 const startBtn = document.getElementById("startbtn");
 const questionContainer = document.querySelector(".question-container");
 const timeEl = document.getElementById("time");
-const questionEl = document.getElementById("question");
+const questionEl = document.getElementById("questions");
 const btnList = document.querySelector(".btn-list");
 const initialEl = document.querySelector(".initial-container")
 const submitBtn = document.querySelector("#submitbtn")
@@ -17,6 +17,7 @@ let scoreArray = []
 function startQuiz() {
     if (index === questions.length){
         endQuiz()
+        return;
     }
     questionContainer.classList.replace("hide","show")
     questionEl.textContent = questions[index].question

@@ -51,9 +51,13 @@ function generateQuiz() {
     // the "questions" variable is not defined in the script.js but it's in the questions.js
     // the reason that we don't have to "import it from question.js it's its's linked in the end of HTML before script.js
     // JavaScript see the questions.js before it runs the script thus I am able to use variable questions 
-    if( index === questions.length) {
+    if( index === questionsList.length) {
+        // The clearInterval() function stop the timer
+        clearInterval(timer);
         // The function will start a series of action after the user went through all the question
         endQuiz();
+        // This return will stop the for loop from looping after user gone through all the question
+        return;
     }
     // checking to see if it worked
     console.log(index)
@@ -226,6 +230,16 @@ function startTimer() {
 
 
 
+// This function will set the action I will take after user run through all the question
+function endQuiz() {
+
+}
+
+
+
+
+
+
 
 // Adding an Event listener
 // the startBtn is predefined we get the element from the html
@@ -240,8 +254,9 @@ startBtn.addEventListener("click",() => {
     startContainer.classList.add("hide");
     // checking if it worked
     console.log(startContainer);
-    // then call 
+    // then call generate function
     generateQuiz();
+    // Finally start timer
     startTimer();
 })
 
