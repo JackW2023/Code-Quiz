@@ -232,6 +232,13 @@ function startTimer() {
 
 // This function will set the action I will take after user run through all the question
 function endQuiz() {
+    // The questionContainer is pre-declare variable getting HTML element main-display-box
+    // The style.display directly modified the inline style attribute in the HTML of the variable questionContainer
+        // It change the display to "none" which hide the content complete ignoring any attribute or element that applies to it
+        // The benefit of doing it this way it that I am sure that no element or attribute will be conflicting with this style setting
+        // The down side of that is that there will be no other way to modified the attribute after that
+    questionContainer.style.display ="none"
+    initialEl.classList.replace("hide","show")
 
 }
 
