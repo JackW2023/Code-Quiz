@@ -62,7 +62,7 @@ function generateQuiz() {
     // checking to see if it worked
     console.log(index)
     // If the if statement doesn't get trigger it will run the following code
-    // questionContainer.classList.remove("hide");
+    questionContainer.classList.remove("hide");
     questionContainer.classList.add("show");
     // checking if it worked
     console.log(questionContainer);

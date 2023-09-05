@@ -31,7 +31,7 @@
     </div>
 
     <!-- This section will hold all the feature for the questions -->
-    <section class="main-display-box">
+    <section class="main-display-box hide">
         <!-- This containers the main box for questions -->
         <div class="display-container">
             <!-- this is the topic of the questions -->
@@ -67,7 +67,9 @@
 
     
     <!-- This is the where the user input the initial so they could move on to score screen after entering -->
-    <footer class="initial-container">
+    <!-- I have to add in two attribute in the "hide" and make this class multi attribute class because these content should be display last-->
+    <footer class="initial-container hide">
+        <h2>Well Done! Please Enter Your initial</h2>
         <input id="initial-input" type="text">
         <button id="submitbtn">Submit</button>
     </footer>
