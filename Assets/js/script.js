@@ -238,6 +238,8 @@ function endQuiz() {
         // The benefit of doing it this way it that I am sure that no element or attribute will be conflicting with this style setting
         // The down side of that is that there will be no other way to modified the attribute after that
     questionContainer.style.display ="none"
+    // The initialEl is getting the initial-container in the HTML 
+    // The .classList is an built in method
     initialEl.classList.replace("hide","show")
 
 }
@@ -287,4 +289,23 @@ choicesBtn.addEventListener("click",(event) => {
     checkAnswers(userChoice);
     // checking for error
     console.log(userChoice);
+})
+
+
+
+
+
+
+
+// This event listen will be storing the information that the user enter after the submitBtn has been click
+    // The submitBtn is an pre-declare variable getting the submit button from HTML
+    // I have an .addEventListener to listen to the click of the submit Button 
+    // I am choosing to use the arrow function to give the code more consistent look but a regular function would work as well
+    // In arrow function the if statement will make sure I don't save blank info if the user made a mistake or choose to do so
+    // The initialInput variable is the input tag in the HTML
+    // The if statement states that if the input is not blank space execute this rest of the code
+submitBtn.addEventListener("click",()=>{
+    if (initialInput !== "") {
+        
+    }
 })
