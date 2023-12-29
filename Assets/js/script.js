@@ -38,7 +38,8 @@ let score = 0;
 let time = 90;
 // the timer variable is use to store the ID of the function "setInterval", and with it we could stop time
 let timer;
-
+// The playerRecord variable is an empty array that will be holding the objects which include user score and their initial that they input [{initial:..., score: ... }]
+let playerRecord = [];
 
 
 
@@ -238,6 +239,8 @@ function endQuiz() {
         // The benefit of doing it this way it that I am sure that no element or attribute will be conflicting with this style setting
         // The down side of that is that there will be no other way to modified the attribute after that
     questionContainer.style.display ="none"
+    // The initialEl is getting the initial-container in the HTML 
+    // The .classList is an built in method
     initialEl.classList.replace("hide","show")
 
 }
@@ -287,4 +290,52 @@ choicesBtn.addEventListener("click",(event) => {
     checkAnswers(userChoice);
     // checking for error
     console.log(userChoice);
+})
+
+
+
+
+
+
+
+// This event listen will be storing the information that the user enter after the submitBtn has been click
+    // The submitBtn is an pre-declare variable getting the submit button from HTML
+    // I have an .addEventListener to listen to the click of the submit Button 
+    // I am choosing to use the arrow function to give the code more consistent look but a regular function would work as well
+    // In arrow function the if statement will make sure I don't save blank info if the user made a mistake or choose to do so
+        // ("click", ()=> { ... }) this part means when the button is click the arrow function will be executed
+            // The arrow function is anonymous because I didn't pass in any arguments
+    // The initialInput variable is the input tag in the HTML
+    // The if statement states that if the input is not blank space execute this rest of the code
+        // The scoreArray is an empty array which I defined using []
+        // There are specific way to write local storage JSON methods 
+        // I am dealing with complex data thus I need to use JSON to parse retrieve and stringify to store 
+            // Complex Data
+                // can hold multiple values
+                // Mutable: can be modified after created
+                // Examples: arrays let arr = [1,2,3] , objects let obj = {john: "1"} etc
+            // Primitive Data
+                // can hold only one value
+                // that value could not be an reference to other value like 
+                // Immutable: Cannot be modified after creation
+                // Example: let num = 10, let name = "John"
+        // Storing & Getting 
+            // The "JSON.stringify()" is for storing data because JSON could only store string
+            // The "JSON.parse" is for retrieving the data because we want it to turn it back to string
+    // 
+submitBtn.addEventListener("click",()=>{
+    // This if statement is checking and making sure that the user input is not a string
+    if (initialInput !== "") {
+        // If the input is not a empty input or blind space I will retrieve the data from local storage
+            // The JSON.parse will turn the stored string back to object so I could use the data
+            // The localStorage.getItem is a method that will retrieve the the under the key I named "record"  
+            // The "||" is the or condition
+            // The "[]" is the an empty array thus it states that if there were no record playerRecord will be an empty array [] 
+        playerRecord = JSON.parse(localStorage.getItem("record")) || []
+        // Here I am creating an new object to store in the initialInput
+            // The userInitial is a variable declare in this function
+            // The initalInput is a pre
+        const userInitial = initialInput.value.trim()
+
+    }
 })
